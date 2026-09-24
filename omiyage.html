@@ -6,35 +6,31 @@
 <title>ありがとう入屋さん！</title>
 
 <style>
+
 body{
     margin:0;
+    min-height:100vh;
     font-family:"Yu Gothic",sans-serif;
-    background:linear-gradient(135deg,#ffe6f2,#fff7d6);
-    overflow:hidden;
     text-align:center;
+    background:linear-gradient(135deg,#ffe6f2,#fffce5);
+    overflow-x:hidden;
 }
 
 .container{
     position:relative;
     z-index:10;
-    margin-top:40px;
+    padding:30px;
 }
 
 h1{
-    font-size:3em;
-    color:#ff4f8b;
+    color:#ff4081;
+    font-size:3rem;
+    margin-bottom:20px;
     animation:bounce 2s infinite;
 }
 
-.message{
-    font-size:1.4em;
-    color:#444;
-    margin:20px;
-    line-height:1.8;
-}
-
 .photo{
-    width:420px;
+    width:500px;
     max-width:90%;
     border-radius:20px;
     border:6px solid white;
@@ -42,71 +38,122 @@ h1{
     animation:float 3s ease-in-out infinite;
 }
 
+.message{
+    font-size:1.4rem;
+    line-height:1.8;
+    color:#444;
+    margin-top:25px;
+}
+
 .thanks{
-    margin-top:20px;
-    font-size:2em;
-    color:#ff6b81;
+    margin-top:30px;
+    font-size:2.2rem;
     font-weight:bold;
+    color:#ff6b81;
+}
+
+.mvp{
+    margin-top:25px;
+    font-size:1.6rem;
+    background:white;
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .heart{
-    position:absolute;
-    color:#ff69b4;
-    font-size:30px;
+    position:fixed;
+    top:-50px;
+    z-index:1;
     animation:fall linear infinite;
 }
 
 @keyframes bounce{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
 }
 
 @keyframes fall{
     from{
-        transform:translateY(-50px);
+        transform:translateY(-100px);
         opacity:1;
     }
+
     to{
-        transform:translateY(105vh);
+        transform:translateY(110vh);
         opacity:0;
     }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
     <h1>🎁 お土産ありがとうございます！ 🎁</h1>
 
-    <!-- 写真を入れる -->
-    <div style="margin: 0 auto;"><img src="omiyage.png" class"message"=""></div>
+    <img src="omiyage.png" class="photo" alt="お土産">
+
+    <div class="message">
         入屋さんが香川県から<br>
         素敵なお菓子を買ってきてくださいました✨<br><br>
 
-        チーム一同、美味しくいただきます！😊
+        チーム一同、感謝しております！<br>
+        美味しくいただきます😊
     </div>
 
     <div class="thanks">
-        ありがとう入屋さん💛
+        💛 ありがとう入屋さん 💛
     </div>
+
+    <div class="mvp">
+        🏆 本日のMVP 🏆<br>
+        入屋さん
+    </div>
+
 </div>
 
 <script>
-for(let i=0;i<40;i++){
+
+for(let i=0;i<60;i++){
+
     const heart=document.createElement("div");
+
     heart.className="heart";
-    heart.innerHTML="💛";
+    heart.innerHTML=Math.random() > 0.5 ? "💛" : "✨";
+
     heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(5+Math.random()*5)+"s";
-    heart.style.fontSize=(20+Math.random()*30)+"px";
+
+    heart.style.fontSize=
+        (20 + Math.random()*25) + "px";
+
+    heart.style.animationDuration=
+        (4 + Math.random()*6) + "s";
+
+    heart.style.animationDelay=
+        (Math.random()*5) + "s";
+
     document.body.appendChild(heart);
 }
+
 </script>
 
 </body>
