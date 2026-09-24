@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ありがとう入屋さん！</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Yu Gothic",sans-serif;
+    background:linear-gradient(135deg,#ffe6f2,#fff7d6);
+    overflow:hidden;
+    text-align:center;
+}
+
+.container{
+    position:relative;
+    z-index:10;
+    margin-top:40px;
+}
+
+h1{
+    font-size:3em;
+    color:#ff4f8b;
+    animation:bounce 2s infinite;
+}
+
+.message{
+    font-size:1.4em;
+    color:#444;
+    margin:20px;
+    line-height:1.8;
+}
+
+.photo{
+    width:420px;
+    max-width:90%;
+    border-radius:20px;
+    border:6px solid white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    animation:float 3s ease-in-out infinite;
+}
+
+.thanks{
+    margin-top:20px;
+    font-size:2em;
+    color:#ff6b81;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    color:#ff69b4;
+    font-size:30px;
+    animation:fall linear infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-50px);
+        opacity:1;
+    }
+    to{
+        transform:translateY(105vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎁 お土産ありがとうございます！ 🎁</h1>
+
+    <!-- 写真を入れる -->
+    <img src="omiyage.jpg" class"message">
+        入屋さんが香川県から<br>
+        素敵なお菓子を買ってきてくださいました✨<br><br>
+
+        チーム一同、美味しくいただきます！😊
+    </div>
+
+    <div class="thanks">
+        ありがとう入屋さん💛
+    </div>
+</div>
+
+<script>
+for(let i=0;i<40;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💛";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
